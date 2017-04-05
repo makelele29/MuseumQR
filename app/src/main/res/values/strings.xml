@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name" translatable="false">Museums Quiz</string>
+    <string name="titulo">Juego de entretenimiento en el museo</string>
+    <string name="descripcion">Empieza escaneando el QR de la sala y ve completando una serie de misiones o completa con exito todos los objetivos para obtener la mejor puntuación</string>
+    <string name="scan">Comienza con el escaner del QR</string>
+    <string name="puntuacion">Puntuación:</string>
+    <string name="tiempo">Tiempo:</string>
+    <string name="mision">Misión </string>
+    <string name="errorQR">Ese QR no es!! Prueba con otro</string>
+    <string name="next">Siguiente</string>
+    <string name="confirmar">Aceptar</string>
+    <string name="terminado">Ya has terminado!!</string>
+    <string name="descterminar">Ahora puedes ver tu puntuación al pulsar el boton de QR</string>
+    <string name="desc">Descripción:</string>
+    <string name="codigo">Código</string>
+    <string name="txtcodigo">Introduce un código</string>
+    <string name="errorSala">El código no está en esta sala.</string>
+
+</resources>

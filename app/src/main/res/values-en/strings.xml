@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Museums Quiz</string>
+    <string name="descripcion">Start by scanning the QR of the room and go completing a series of missions or complete with success all the objectives to obtain the best score</string>
+    <string name="scan">Start with the QR Scanner</string>
+    <string name="titulo">Game of entertainment in the museum</string>
+    <string name="puntuacion">Score:</string>
+    <string name="tiempo">Time:</string>
+    <string name="mision">Mission</string>
+    <string name="errorQR">That QR is not !! Try another</string>
+    <string name="next">Next</string>
+    <string name="confirmar">Accept</string>
+    <string name="desc">Description</string>
+    <string name="terminado">You\'re done!</string>
+    <string name="descterminar">Now you can see your score by clicking the QR button</string>
+    <string name="codigo">Code</string>
+    <string name="txtcodigo">Enter code</string>
+    <string name="errorSala">The code is not in this room.</string>
+</resources>
