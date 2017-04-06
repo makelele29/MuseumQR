@@ -1,34 +1,23 @@
 package com.creandotecnologiablog.museumqr;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Chronometer;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -41,11 +30,8 @@ import com.google.zxing.integration.android.IntentResult;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Locale;
-import java.util.Objects;
 
 public class Principal extends AppCompatActivity {
 
@@ -151,7 +137,7 @@ public class Principal extends AppCompatActivity {
         try {
             JSONObject object = new JSONObject(data);
             if(object.has("start")){
-                ((LinearLayout)findViewById(R.id.score)).setVisibility(View.VISIBLE);
+                findViewById(R.id.score).setVisibility(View.VISIBLE);
                 cargarQR(object.getString("child"));
 
             }else{
@@ -162,17 +148,18 @@ public class Principal extends AppCompatActivity {
                         case "respuestas":
 
                             intent=new Intent(this,respuestas.class);
-                            intent.putExtra(DATOS,((Respuesta)qrs.get(mision)));
+                            intent.putExtra(DATOS, qrs.get(mision));
                             break;
-                        case "valor":
+                        case "number":
+                        case "spinner":
                         case "texto":
                             intent=new Intent(this,valor.class);
                             intent.putExtra(TIPO,qrs.get(mision).getTipo());
                             intent.putExtra(DATOS,(qrs.get(mision)));
+                        break;
 
                     }
                     startActivityForResult(intent,PREGUNTAS);
-                    Log.i("Hola",object.getString("pregunta"));
 
                 }else
                     Toast.makeText(Principal.this,getResources().getString(R.string.errorQR),Toast.LENGTH_LONG).show();
@@ -224,11 +211,14 @@ public class Principal extends AppCompatActivity {
                     case "respuestas":
                         qrs.add(pos,dataSnapshot.getValue(Respuesta.class));
                         break;
-                    case "valor":
-                        qrs.add(pos,dataSnapshot.getValue(Valor.class));
+                    case "number":
+                        qrs.add(pos,dataSnapshot.getValue(Number.class));
                         break;
                     case "texto":
-                        qrs.add(pos,dataSnapshot.getValue(ValorTexto.class));
+                        qrs.add(pos,dataSnapshot.getValue(Texto.class));
+                        break;
+                    case "spinner":
+                        qrs.add(pos,dataSnapshot.getValue(Spinner.class));
                         break;
                 }
 
@@ -258,7 +248,6 @@ public class Principal extends AppCompatActivity {
     }
     public void cargarMision(DataSnapshot dataSnapshot){
         String idioma=Locale.getDefault().getLanguage();
-        Log.i("Idioma",idioma);
         dataSnapshot=dataSnapshot.child(idioma);
         TextView des=(TextView)findViewById(R.id.txtDescripcion);
         des.setText(dataSnapshot.child("mision").getValue(String.class));
@@ -269,11 +258,14 @@ public class Principal extends AppCompatActivity {
                 case "respuestas":
                     qrs.add(data.getValue(Respuesta.class));
                     break;
-                case "valor":
-                    qrs.add(data.getValue(Valor.class));
+                case "number":
+                    qrs.add(data.getValue(Number.class));
                     break;
                 case "texto":
-                    qrs.add(data.getValue(ValorTexto.class));
+                    qrs.add(data.getValue(Texto.class));
+                    break;
+                case "spinner":
+                    qrs.add(data.getValue(Spinner.class));
                     break;
             }
 
@@ -310,7 +302,7 @@ public class Principal extends AppCompatActivity {
                 .setPositiveButton("Guardar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int id) {
-                        codigo=0;
+                    codigo=0;
                     if(editcodigo.getText().toString().length()>0)
                         codigo=Integer.parseInt( editcodigo.getText().toString());
                     Toast.makeText(getApplicationContext(),"El código introducido es "+codigo,Toast.LENGTH_LONG).show();

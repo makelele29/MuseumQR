@@ -4,14 +4,14 @@ package com.creandotecnologiablog.museumqr;
  * Created by makelele29 on 3/04/17.
  */
 
-public class ValorTexto extends Pregunta{
+public class Texto extends Pregunta{
     private String correcta;
 
-    public ValorTexto(){
+    public Texto(){
         correcta="";
     }
 
-    public ValorTexto(String pregunta, String tipo, int qr, String siguiente, String info, String correcta, String campo) {
+    public Texto(String pregunta, String tipo, int qr, String siguiente, String info, String correcta, String campo) {
         super(pregunta, tipo, qr, siguiente, info);
         this.correcta = correcta;
     }
