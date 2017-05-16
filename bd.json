@@ -1,0 +1,167 @@
+{
+  "dificultad" : [ {
+    "en" : "Easy",
+    "es" : "Fácil"
+  }, {
+    "en" : "Medium",
+    "es" : "Media"
+  }, {
+    "en" : "Hard",
+    "es" : "Dificil"
+  } ],
+  "misiones" : {
+    "id_0" : {
+      "preguntas" : [ {
+        "coins" : 20,
+        "correcta" : 2,
+        "objetivos" : {
+          "bronce" : 1
+        },
+        "pregunta" : {
+          "en" : "Who painted Las Meninas?",
+          "es" : "¿Quien pinto Las Meninas?"
+        },
+        "respuesta1" : {
+          "es" : "Picasso"
+        },
+        "respuesta2" : {
+          "es" : "Velázquez"
+        },
+        "respuesta3" : {
+          "es" : "El greco"
+        },
+        "respuesta4" : {
+          "es" : "Dalí"
+        },
+        "tipo" : "respuestas"
+      }, {
+        "coins" : 50,
+        "correcta" : 1492,
+        "objetivos" : {
+          "bronce" : 1
+        },
+        "pregunta" : {
+          "en" : " In what year was America discovered?",
+          "es" : "¿En que año se descubrió América?"
+        },
+        "tipo" : "number"
+      }, {
+        "coins" : 20,
+        "correcta" : 3,
+        "objetivos" : {
+          "bronce" : 1
+        },
+        "pregunta" : {
+          "en" : "What period does Garcilaso de la Vega belong to?",
+          "es" : "¿A qué período pertenece Garcilaso de la Vega?"
+        },
+        "respuesta1" : {
+          "en" : "Generation of 98",
+          "es" : "Generación del 98"
+        },
+        "respuesta2" : {
+          "en" : "Generation of 27",
+          "es" : "Generación del 27"
+        },
+        "respuesta3" : {
+          "en" : "Golden age",
+          "es" : "Siglo de Oro"
+        },
+        "respuesta4" : {
+          "en" : "Century of Lights",
+          "es" : "Siglo de las Luces"
+        },
+        "tipo" : "respuestas"
+      }, {
+        "coins" : 50,
+        "correcta" : 1815,
+        "objetivos" : {
+          "bronce" : 1
+        },
+        "pregunta" : {
+          "en" : "In what year was the Battle of Waterloo?",
+          "es" : "¿En que año fue la batalla de Waterloo?"
+        },
+        "tipo" : "number"
+      } ]
+    },
+    "id_1" : {
+      "preguntas" : [ {
+        "coins" : 50,
+        "correcta" : "hello",
+        "objetivos" : {
+          "plata" : 1
+        },
+        "pregunta" : {
+          "en" : "How do you say Hola in english?",
+          "es" : "¿Como se dice en ingles hola?"
+        },
+        "tipo" : "texto"
+      }, {
+        "coins" : 100,
+        "correcta" : 1789,
+        "max" : 1800,
+        "min" : 1700,
+        "objetivos" : {
+          "plata" : 1
+        },
+        "pregunta" : {
+          "en" : "In which year was America discovered?",
+          "es" : "¿Cuando fue la revolución Francesa?"
+        },
+        "tipo" : "spinner"
+      } ]
+    },
+    "id_2" : {
+      "preguntas" : [ {
+        "coins" : 50,
+        "correcta" : "florencia",
+        "objetivos" : {
+          "oro" : 1
+        },
+        "pregunta" : {
+          "en" : "Where is the Basilica of Santa Maria del Fiore?",
+          "es" : "¿En qué lugar se encuentra la Basílica de Santa María del Fiore?"
+        },
+        "tipo" : "texto"
+      } ]
+    }
+  },
+  "objetivos" : {
+    "bronce" : {
+      "foto" : "url-de-la-foto",
+      "puntuaje" : 4,
+      "titulo" : {
+        "en" : "Bronze",
+        "es" : "Bronce"
+      }
+    },
+    "oro" : {
+      "foto" : "url-de-la-foto",
+      "puntuaje" : 1,
+      "titulo" : {
+        "en" : "Gold",
+        "es" : "Oro"
+      }
+    },
+    "plata" : {
+      "foto" : "url-de-la-foto",
+      "puntuaje" : 2,
+      "titulo" : {
+        "en" : "Silver",
+        "es" : "Plata"
+      }
+    }
+  },
+  "premios" : [ null, {
+    "coins" : 135,
+    "foto" : "url-de-la-foto",
+    "titulo" : {
+      "en" : "Pencil",
+      "es" : "Lápiz"
+    }
+  } ],
+  "qr1" : {
+    "dificultad" : [ "id_0", "id_1", "id_2" ]
+  }
+}
