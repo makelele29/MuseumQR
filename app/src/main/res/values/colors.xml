@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#D2DF64</color>
+    <color name="colorPrimaryDark">#074566</color>
     <color name="colorAccent">#FF4081</color>
-    ç<color name="colorOK">#00CC66</color>
-    <color name="colorFail">#FF0000</color>
+    ç<color name="colorOK">#8A00CC66</color>
+    <color name="colorFail">#8AFF0000</color>
+    <color name="encabezado">#7164D8</color>
+    <color name="verde">#73E568</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="negroTrans">#A6074566</color>
 </resources>

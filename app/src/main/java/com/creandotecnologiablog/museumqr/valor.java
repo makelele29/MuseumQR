@@ -1,5 +1,6 @@
 package com.creandotecnologiablog.museumqr;
 
+import android.os.Handler;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.creandotecnologiablog.museumqr.R.color.colorOK;
 
@@ -21,23 +23,27 @@ public class valor extends AppCompatActivity {
     private int correctaN;
     private String correctaS;
     private boolean jugado;
-    private MenuItem salir;
+    private TextView txtcoins;
     private  boolean correcto;
-    public static final String OK="ok";
+    private TextView solucion;
     private NumberPicker number;
     private String info;
     private boolean numero;
     private EditText edit;
     private String tipo;
+    private int coins;
+    private int intento;
+    private double[]porcentajes={0.7,0.4,0};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_valor);
-
-            Pregunta object=(Pregunta) getIntent().getSerializableExtra(Principal.DATOS);
+            solucion=(TextView)findViewById(R.id.solucion);
+            Pregunta object=(Pregunta) getIntent().getSerializableExtra(MenuPrincipal.DATOS);
             ((TextView)findViewById(R.id.txtPregunta)).setText(object.getPregunta());
-            tipo=getIntent().getStringExtra(Principal.TIPO);
+            tipo=object.getTipo();
+        txtcoins=(TextView)findViewById(R.id.coinsPregunta);
             if(!tipo.equals("texto")){
 
                 correctaN=((Number)object).getCorrecta();
@@ -75,89 +81,101 @@ public class valor extends AppCompatActivity {
 
 
             }
-            info=object.getInfo();
+        coins=object.getCoins();
+        ((TextView)findViewById(R.id.coinsPregunta)).setText(""+object.getCoins());
+        intento=3;
+        ((TextView)findViewById(R.id.intentos)).setText(""+intento);
 
-        jugado=false;
 
     }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_ok, menu);
-        salir=menu.findItem(R.id.ok);
-        salir.setVisible(false);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.ok:
-                getIntent().putExtra(OK,correcto);
-                setResult(RESULT_OK,getIntent());
-                finish();
 
-        }
-        return true;
-    }
+
     public void click(View v){
-        if(!jugado){
-            jugado=true;
+        if(intento!=0){
+
             if(numero) {
                 int valor = 0;
                 switch (tipo){
                     case "spinner":
                         valor = number.getValue();
                         if (valor == correctaN) {
-                            correcto = true;
+                            intento=0;
                             number.setBackgroundColor(getResources().getColor(colorOK));
                         } else {
 
-                            number.setBackgroundColor(getResources().getColor(R.color.colorFail));
-                            TextView infoview = (TextView) findViewById(R.id.info);
-                            infoview.setText(info);
-                            infoview.setVisibility(View.VISIBLE);
-                            correcto = false;
+                            //number.setBackgroundColor(getResources().getColor(R.color.colorFail));
+                            ((TextView)findViewById(R.id.coinsPregunta)).setText(""+(int)(coins*porcentajes[3-intento]));
+
+                            intento--;
+                            Toast.makeText(valor.this,getResources().getString(R.string.vida_menos),Toast.LENGTH_LONG).show();
+                            ((TextView)findViewById(R.id.intentos)).setText(""+intento);
+                            if(intento==0){
+
+                                solucion.setText(""+correctaN);
+                                solucion.setBackgroundColor(getResources().getColor(colorOK));
+                            }
                         }
-                        number.setEnabled(false);
+
                     break;
                     case "number":
                         valor = Integer.parseInt(edit.getText().toString());
                         if (valor == correctaN) {
-                            correcto = true;
+                            intento=0;
                             edit.setBackgroundColor(getResources().getColor(colorOK));
                         } else {
+                            ((TextView)findViewById(R.id.coinsPregunta)).setText(""+(int)(coins*porcentajes[3-intento]));
 
-                            edit.setBackgroundColor(getResources().getColor(R.color.colorFail));
-                            TextView infoview = (TextView) findViewById(R.id.info);
-                            infoview.setText(info);
-                            infoview.setVisibility(View.VISIBLE);
-                            correcto = false;
+                            intento--;
+                            ((TextView)findViewById(R.id.intentos)).setText(""+intento);
+                            if(intento==0){
+
+                                solucion.setText(""+correctaN);
+                                solucion.setBackgroundColor(getResources().getColor(colorOK));
+                            }
                         }
-                        edit.setEnabled(false);
+
                     break;
                 }
 
 
             }else{
                 String valor=edit.getText().toString();
-                if(valor.equals(correctaS)){
-                    correcto = true;
+                if(valor.toLowerCase().equals(correctaS.toLowerCase())){
+                    intento=0;
                     edit.setBackgroundColor(getResources().getColor(colorOK));
                 } else {
 
-                    edit.setBackgroundColor(getResources().getColor(R.color.colorFail));
-                    TextView infoview = (TextView) findViewById(R.id.info);
-                    infoview.setText(info);
-                    infoview.setVisibility(View.VISIBLE);
-                    correcto = false;
+                    ((TextView)findViewById(R.id.coinsPregunta)).setText(""+(int)(coins*porcentajes[3-intento]));
+
+                    intento--;
+                    Toast.makeText(valor.this,getResources().getString(R.string.vida_menos),Toast.LENGTH_LONG).show();
+                    ((TextView)findViewById(R.id.intentos)).setText(""+intento);
+                    if(intento==0){
+
+                        solucion.setText(""+correctaS);
+                        solucion.setBackgroundColor(getResources().getColor(colorOK));
+                    }
                 }
-                edit.setEnabled(false);
+
 
             }
-            salir.setVisible(true);
+            if(intento==0)
+                terminar();
+
         }
 
 
+    }
+    public void terminar(){
+        Handler handler=new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                getIntent().putExtra(MenuPrincipal.OK,Integer.parseInt(txtcoins.getText().toString()));
+                setResult(RESULT_OK,getIntent());
+                finish();
+
+            }
+        },3000);
     }
 }

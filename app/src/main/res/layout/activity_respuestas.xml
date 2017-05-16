@@ -5,14 +5,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="6"
+    android:weightSum="7"
     tools:context="com.creandotecnologiablog.museumqr.respuestas">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:weightSum="3"
+        android:padding="10dp"
+        android:gravity="center"
+        android:background="@color/colorPrimaryDark"
+        android:layout_marginTop="5dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:weightSum="3"
+            android:gravity="center">
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:src="@mipmap/ic_vida"
+                android:layout_gravity="right"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/intentos"
+                android:text="3"
+                android:textSize="22sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="2"
+            android:weightSum="3"
+            android:gravity="center">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/coinsPregunta"
+                android:text="0"
+                android:layout_weight="2"
+                android:textSize="22sp"
+                android:textColor="@color/colorPrimary"
+                android:gravity="right"/>
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@mipmap/ic_coin"
+                android:layout_gravity="right"/>
+
+        </LinearLayout>
+    </LinearLayout>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:id="@+id/txtPregunta"
-        android:background="@color/zxing_possible_result_points"
+        android:background="@drawable/ic_dialog"
         android:padding="10dp"
         android:textSize="@dimen/titulo"
         android:layout_margin="5dp"
@@ -27,6 +84,7 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:id="@+id/uno"
+        android:background="@drawable/opcion"
         android:tag="1"
         android:onClick="click"
         />
@@ -40,6 +98,7 @@
         android:gravity="center"
         android:id="@+id/dos"
         android:tag="2"
+        android:background="@drawable/opcion"
         android:onClick="click"
         />
     <Button
@@ -51,6 +110,7 @@
         android:layout_margin="5dp"
         android:gravity="center"
         android:id="@+id/tres"
+        android:background="@drawable/opcion"
         android:tag="3"
         android:onClick="click"
         />
@@ -64,6 +124,7 @@
         android:gravity="center"
         android:id="@+id/cuatro"
         android:tag="4"
+        android:background="@drawable/opcion"
         android:onClick="click"
         />
 </LinearLayout>

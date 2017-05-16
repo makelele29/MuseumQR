@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">Museums Quiz</string>
     <string name="titulo">Juego de entretenimiento en el museo</string>
-    <string name="descripcion">Empieza escaneando el QR de la sala y ve completando una serie de misiones o completa con exito todos los objetivos para obtener la mejor puntuación</string>
+    <string name="descripcion">Escanea los códigos QR de las salas para realizar preguntas y obtener monedas.</string>
     <string name="scan">Comienza con el escaner del QR</string>
-    <string name="puntuacion">Puntuación:</string>
     <string name="tiempo">Tiempo:</string>
     <string name="mision">Misión </string>
     <string name="errorQR">Ese QR no es!! Prueba con otro</string>
@@ -15,5 +14,33 @@
     <string name="codigo">Código</string>
     <string name="txtcodigo">Introduce un código</string>
     <string name="errorSala">El código no está en esta sala.</string>
+    <string name="welcome">¿Cómo se juega?</string>
+    <string name="puntuacion"><b>Monedas</b></string>
+    <string name="medallas"><b>Medallas</b></string>
+    <string name="txtdescripcion"><b>Descripción</b></string>
+    <string name="info_puntuacion">Las monedas podrán ser canjeadas en el museo por premios, cuantas más monedas mejor sera el premio.</string>
+    <string name="info_intentos">En cada pregunta tendrás 3 intentos y por cada intento fallido el numero de monedas que se pueden conseguir es menor.</string>
+    <string name="info_medallas">También podrás obtener medallas cuando cumplas unos objetivos.</string>
+    <string name="info_descripcion">El juego consiste en ir leyendo unos codigos QR que nos haran una serie de preguntas por cada pregunta acertada ganaremos monedas y cuando se cumplan una serie de objetivos se ganaran medallas.</string>
+    <string name="preference_file_key">com.creandotecnologiablog.qrplay.USUARIO</string>
+    <string name="menu">Menu</string>
+    <string name="user">com.creandotecnologiablog.qrplay.NOMBRE</string>
+    <string name="info_escanea">Código QR</string>
+    <string name="info_coins">Monedas</string>
+    <string name="info_medalla">Medallas</string>
+    <string name="escanear">Escanear</string>
+    <string name="name_player">Nombre del jugador</string>
+    <string name="canjear">Canjear</string>
+    <string name="conseguido">Medalla conseguida</string>
+    <string name="empezar">Empezar!</string>
+    <string name="cancel">Cancelado</string>
+    <string name="error_qr">QR erroneo</string>
+    <string name="completado">Has contestado todas las preguntas posibles.</string>
+    <string name="vida_menos">Has perdido una vida, ten más cuidado</string>
+    <string name="txtConseguido">Premio obtenido</string>
+    <string name="facil">Fácil</string>
+    <string name="medio">Medio</string>
+    <string name="dificil">Dificil</string>
+    <string name="dificultad">Dificultad</string>
 
 </resources>

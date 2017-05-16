@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Museums Quiz</string>
-    <string name="descripcion">Start by scanning the QR of the room and go completing a series of missions or complete with success all the objectives to obtain the best score</string>
+    <string name="descripcion">Scan QR\'s codes of the rooms to answer the questions and get coins.</string>
     <string name="scan">Start with the QR Scanner</string>
     <string name="titulo">Game of entertainment in the museum</string>
     <string name="puntuacion">Score:</string>
@@ -16,4 +16,24 @@
     <string name="codigo">Code</string>
     <string name="txtcodigo">Enter code</string>
     <string name="errorSala">The code is not in this room.</string>
+    <string name="welcome">How to play?</string>
+    <string name="info_intentos">In each question you will have 3 chances and for each failed oportunity,  you will be able to get less coins.</string>
+    <string name="info_puntuacion">Coins can be changed in the museum by prices, if you get more coins you will have a bigger price.</string>
+    <string name="info_medallas">You can also get coins if you meet targets.</string>
+    <string name="info_escanea">QR code</string>
+    <string name="info_medalla">Medals</string>
+    <string name="info_coins">Coins</string>
+    <string name="name_player">Player name</string>
+    <string name="escanear">Scan</string>
+    <string name="canjear">Exchange</string>
+    <string name="conseguido">Medal obtained</string>
+    <string name="empezar">Let\'s go!</string>
+    <string name="completado">You have answered all the questions.</string>
+    <string name="cancel">Cancel</string>
+    <string name="error_qr">Error QR</string>
+    <string name="vida_menos">You have lost one life, be careful next time!</string>
+    <string name="dificil">Hard</string>
+    <string name="dificultad">Difficulty</string>
+    <string name="facil">easy</string>
+    <string name="medio">Medium</string>
 </resources>
